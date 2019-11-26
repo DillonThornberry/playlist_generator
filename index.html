@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style>
+		.song:active,
+		.song:focus 
+		{
+			border:0.25em solid blue; 
+     		color: blue;
+		}
+
+		.title { 
+			width: 100px; 
+			height: auto; 
+			justify-content: center;
+		}
+
+		.artist {
+			font-size: 10pt;
+			margin-top: -10px;
+		}
+
+		.song-card {
+			padding-left: 2%;
+			padding-right: 2%;
+		}
+
+		#song-container{
+			padding-top: 30px;
+			width: 100%;
+			justify-content: center;
+		}
+		
+
+			
+	</style>
+<head>
+</head>
+<body>
+	<iframe id="sc-player" width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src=""></iframe>
+	<div id="song-container" class="row"></div>
+	<script src='/index.js'></script>
+</body>
+</html>
