@@ -6,12 +6,9 @@ const app = express()
 app.use(express.static(__dirname))
 
 app.get('/playlist', (req, res) => {
-	var userId = req.query.user
-	var mine = req.query.mine
-	var their = req.query.their
-	// res.send(JSON.stringify(getPlaylist(userId, mine, their)))
-	getPlaylist(userId, mine, their, result => {
-		//console.log(result.length)
+	var { user, mine, their } = req.query
+
+	getPlaylist(user, mine, their, result => {
 		res.send(JSON.stringify(result))
 	})
 })

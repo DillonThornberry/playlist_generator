@@ -4,6 +4,9 @@ const makeUrl = (id) => baseUrl + id.toString() + endUrl
 
 var songList = null
 
+// Get song list based on given parameters, set first song to play, and
+// make HTML elements for each song 
+
 fetch('/playlist?user=293331713&mine=followings&their=toptrack')
 .then(res => res.json()).then(json => {
 	songList = json
@@ -20,31 +23,26 @@ const clickedImg = i => {
 	changeSong(i)
 
 }
-const test = (a) => console.log('test' + a)
 
 const makeSongCards = (songList) => {
 	const altImage = "http://service-line.co.uk/wp-content/uploads/2016/05/PPM-Services-Icon-100x100.png"
 
+	// For every song in songList, make a div with a button inside of it,
+	// the track image inside the button (or alt image), and the track
+	// title and artist name below it. Then append them all to 'song-container'
+
 	for (var i = 0; i < songList.length; i++){
 
 		var div = document.createElement('div')
-		//div.class = 'card'
-		//div.className = "col"
-		div.className = "song-card"
+	
+		div.className = "song-card`"
 		div.innerHTML = `<button class="song" onclick="changeSong(${i})"> 
 			<img class="song-img" src=${songList[i].artwork_url} alt=${songList[i].title.split(' ').join('-')} onerror="this.src='${altImage}'"></img> 
 		</button>`
 
 		div.innerHTML += `<p class="title">${songList[i].title}</p>`
 		div.innerHTML += `<p class="artist"><i>${songList[i].user.username}</i></p>`
-		// var img = document.createElement('img')
-		// img.src = songList[i].artwork_url
-		//img.id = i
-		//img.className = 'song-cover'
-		//img.style = "width:10%; height:10%"
-		//img.addEventListener('click', () => console.log(this.id))
-		//img.className = 'card-img-top'
-		// button.appendChild(img)
+	
 		document.getElementById('song-container').appendChild(div)
 	}
 	var pics = document.getElementsByClassName('song-cover')
